@@ -12,7 +12,7 @@ REM Set Window Title
 set TITLE=Scrcpy Android Desktop Mode
 
 REM Scrcpy Input Options
-set OPTIONS=-M -K -Sw
+set OPTIONS=-Sw --always-on-top
 
 :: ==========================================
 ::  Create Display
@@ -56,7 +56,7 @@ echo [OK] Found Display ID: %dID%
 echo [3/3] Launching Scrcpy...
 echo.
 
-scrcpy --display-id %dID% %OPTIONS% --window-title="%TITLE%"
+scrcpy --display-id %dID% -K -M %OPTIONS% --window-title="%TITLE%"
 
 :: ==========================================
 ::  Cleanup after closing window
