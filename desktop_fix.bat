@@ -9,7 +9,7 @@ REM Set Window Display Resolution/DPI
 set RES_DPI=1920x1080/180
 
 REM Set Window Title
-set TITLE=Android Desktop Mode
+set TITLE=Scrcpy Android Desktop Mode
 
 REM Scrcpy Input Options
 set OPTIONS=-M -K -Sw
@@ -68,7 +68,7 @@ echo [+] Overlay display destroyed.
 echo.
 
 echo Would you like to reboot your device to reset display ids?
-choice /C YN /T 10 /D N /M "If no input, will automatically choose NO in 10s."
+choice /C YN /T 5 /D N /M "If no input, will automatically choose NO in 5s."
 if errorlevel 2 goto :EOF
 adb reboot
 exit /b
