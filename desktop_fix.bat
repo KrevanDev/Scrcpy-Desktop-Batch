@@ -6,7 +6,7 @@ cls
 ::  Configuration Variables
 :: ==========================================
 REM Set Window Display Resolution/DPI
-set RES_DPI=1552x1040/180
+set RES_DPI=1560x1008/180
 
 REM Set Window Title
 set TITLE=Scrcpy Android Desktop Mode
