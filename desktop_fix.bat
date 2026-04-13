@@ -41,14 +41,14 @@ for /f "tokens=1 delims= " %%B in ("%dID%") do set "dID=%%B"
 del "%TEMP%\displays.txt" > nul 2>&1
 
 if "%dID%"=="" (
-    echo [!] ERROR: Could not find a valid Display ID
+    echo [ERR] Could not find a valid Display ID
     echo     - Ensure Developer Options are enabled
     echo     - Ensure USB debugging is allowed
     pause
     exit /b
 )
 
-echo [+] Found Display ID: %dID%
+echo [OK] Found Display ID: %dID%
 
 :: ==========================================
 ::  Launch Scrcpy Window
@@ -64,11 +64,13 @@ scrcpy --display-id %dID% %OPTIONS% --window-title="%TITLE%"
 echo.
 
 adb shell settings put global overlay_display_devices "null" 2>&1
-echo [+] Overlay display destroyed.
+echo [OK] Overlay display destroyed.
 echo.
 
 echo Would you like to reboot your device to reset display ids?
 choice /C YN /T 5 /D N /M "If no input, will automatically choose NO in 5s."
 if errorlevel 2 goto :EOF
 adb reboot
+echo Rebooting device...
+
 exit /b
