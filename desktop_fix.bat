@@ -65,4 +65,10 @@ echo.
 
 adb shell settings put global overlay_display_devices "null" 2>&1
 echo [+] Overlay display destroyed.
+echo.
+
+echo Would you like to reboot your device to reset display ids?
+choice /C YN /T 10 /D N /M "If no input, will automatically choose NO in 10s."
+if errorlevel 2 goto :EOF
+adb reboot
 exit /b
